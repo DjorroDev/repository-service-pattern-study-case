@@ -25,9 +25,9 @@ class InvoiceService
         return $this->invoiceRepository->getAll();
     }
 
-    public function create($validated) {
+    public function create($validated, $userId) {
         $invoiceData = [
-            'user_id' => $validated['user_id'],
+            'user_id' => $userId,
             'code' => 'INV-' . rand(100000,999999),
             'note' => $validated['note'],
             'amount' => $validated['amount'],

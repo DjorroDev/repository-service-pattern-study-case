@@ -4,13 +4,14 @@
 
 -   Repository meng-handle per table yang dimiliki di database membuat logic CRUD dan eloquent di sini.
 -   Service melakukan segala logic yang dibutuhkan dan dapat memanggil beberapa repository pada instance service.
+-   Service juga bisa memanggil service lain selama tidak menyebabkan circular depedency.
 -   Controller hanya perlu handle request dan juga response dari user.
 -   Meningkatkan maintainability pada sebuah code dan mengurangi redundance pada code.
 -   Pattern ini menggunakan design Dependency Injection (DI)
 -   Laravel memiliki built in DI yaitu service container dan service provider.
 -   Pada kode ini saya mencoba implement repository & service pattern pada laravel dengan built in DI nya.
--   bonus: menggunakan form request validation biar controller makin ramping.
 -   Contohnya pada controller invoices untuk menampilkan user dan controller invoice khusus admin. Di mana keduanya itu memiliki proses yang sama. dengan pattern tersebut bisa centralized logic untuk digunakan kepada kedua controller dengan layer service yang sama.
+-   bonus: menggunakan form request validation biar controller makin ramping.
 
 ## Note
 
@@ -58,3 +59,10 @@ These routes are typically accessible to administrators for managing users.
 | GET    | `/users/create`  | Display form to create a new user and invoice | `AdminPanel\UserController@create` |
 | POST   | `/users/create`  | Store a newly created user and invoice        | `AdminPanel\UserController@store`  |
 | GET    | `/users/id/{id}` | Show details of a specific user               | `AdminPanel\UserController@show`   |
+
+## TODO NEXT (optional)
+
+-   add Authentication
+-   improve ui
+-   error handling
+-   add page buat tampilkan data

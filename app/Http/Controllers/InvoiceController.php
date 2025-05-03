@@ -28,6 +28,8 @@ class InvoiceController extends Controller
 
     public function store(StoreInvoiceRequest $request) {
         $validated = $request->validated();
-        return $this->invoiceService->create($validated);
+        return $this->invoiceService
+            ->create($validated, $validated['user_id']);
+            // Can be use request->user() etc.. tapi di sini hardcode duls
     }
 }
