@@ -37,4 +37,20 @@ class InvoiceService
 
         return $this->invoiceRepository->create($invoice);
     }
+
+    public function update($validated, $id) {
+        $invoiceData = [
+            'id' => $id,
+            'note' => $validated['note'],
+            'amount' => $validated['amount'],
+        ];
+
+
+
+        return $this->invoiceRepository->update($invoiceData);
+    }
+
+    public function delete($id) {
+        return $this->invoiceRepository->delete($id);
+    }
 }

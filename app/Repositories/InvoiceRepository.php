@@ -37,4 +37,17 @@ class InvoiceRepository implements InvoiceRepositoryInterface
         $invoice->save();
         return $invoice;
     }
+
+    public function update($invoiceData) {
+        $data = Invoice::find($invoiceData['id']);
+        $data->note = $invoiceData['note'];
+        $data->amount = $invoiceData['amount'];
+
+        $data->save();
+        return $data;
+    }
+
+    public function delete($id) {
+        return Invoice::destroy($id);
+    }
 }

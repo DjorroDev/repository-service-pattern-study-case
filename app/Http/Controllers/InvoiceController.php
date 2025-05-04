@@ -19,7 +19,8 @@ class InvoiceController extends Controller
     }
 
     public function show($id) {
-        return $this->invoiceService->getById($id);
+        $invoice = $this->invoiceService->getById($id);
+        return view('showInvoiceDetail', ['invoice' => $invoice]);
     }
 
     public function create() {

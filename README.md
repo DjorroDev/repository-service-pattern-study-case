@@ -44,10 +44,20 @@ Cuman perlu build data dummy seeding dan factory.
 
 These routes are typically accessible to administrators.
 
-| Method | Path                     | Description                       | Controller@Action                     |
-| ------ | ------------------------ | --------------------------------- | ------------------------------------- |
-| GET    | `/invoices/users`        | List all invoices for all users   | `AdminPanel\InvoiceController@index`  |
-| GET    | `/invoices/users/{user}` | List invoices for a specific user | `AdminPanel\InvoiceController@byUser` |
+## Admin Panel - Invoice Routes
+
+These routes are typically accessible to administrators.
+
+| Method | Path                           | Description                                     | Controller@Action                  |
+| ------ | ------------------------------ | ----------------------------------------------- | ---------------------------------- |
+| GET    | `/admin/invoices/create`       | Display form to create a new invoice (Admin)    | `AdminInvoiceController@create`    |
+| POST   | `/admin/invoices/create`       | Store a newly created invoice (Admin)           | `AdminInvoiceController@store`     |
+| GET    | `/admin/invoices/`             | List all invoices for all users (Admin)         | `AdminInvoiceController@index`     |
+| GET    | `/admin/invoices/{id}`         | Show details of a specific invoice (Admin)      | `AdminInvoiceController@show`      |
+| GET    | `/admin/invoices/users/{user}` | List invoices for a specific user (Admin)       | `AdminInvoiceController@getByUser` |
+| GET    | `/admin/invoices/edit/{id}`    | Display form to edit a specific invoice (Admin) | `AdminInvoiceController@edit`      |
+| PUT    | `/admin/invoices/edit/{id}`    | Update a specific invoice (Admin)               | `AdminInvoiceController@update`    |
+| DELETE | `/admin/invoices/delete/{id}`  | Delete a specific invoice                       | `AdminInvoiceController@delete`    |
 
 ### Admin Panel - User Routes
 

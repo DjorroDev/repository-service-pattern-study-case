@@ -8,8 +8,10 @@
 </head>
 
 <body>
-    <form action="{{ route('invoices.create') }}" method="POST">
+    <h1>edit invoice {{$id}}</h1>
+    <form action="{{ route('invoices.update', $id) }}" method="POST">
         @csrf
+        @method('PUT')
         <div>
             <label for="amount">Amount:</label>
             <input type="number" name="amount" id="amount" required>
@@ -19,11 +21,7 @@
             <textarea name="note" id="note" rows="4"></textarea>
         </div>
         <div>
-            <label for="user_id">User ID:</label>
-            <input type="number" name="user_id" id="user_id" required>
-        </div>
-        <div>
-            <button type="submit">Create Invoice</button>
+            <button type="submit">Update Invoice</button>
         </div>
     </form>
 </body>

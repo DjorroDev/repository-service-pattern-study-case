@@ -21,8 +21,14 @@ Route::get('/invoices/create', [InvoiceController::class, 'create']);
 Route::post('/invoices/create', [InvoiceController::class, 'store']);
 
 
-Route::get('/invoices/users/', [AdminInvoiceController::class, 'index']);
-Route::get('/invoices/users/{user}', [AdminInvoiceController::class, 'byUser']);
+Route::get('/admin/invoices/create', [AdminInvoiceController::class, 'create']);
+Route::post('/admin/invoices/create', [AdminInvoiceController::class, 'store'])->name('invoices.create');
+Route::get('/admin/invoices/', [AdminInvoiceController::class, 'index']);
+Route::get('/admin/invoices/{id}', [AdminInvoiceController::class, 'show']);
+Route::get('/admin/invoices/users/{user}', [AdminInvoiceController::class, 'getByUser']);
+Route::get('/admin/invoices/edit/{id}', [AdminInvoiceController::class, 'edit']);
+Route::put('/admin/invoices/edit/{id}', [AdminInvoiceController::class, 'update'])->name('invoices.update');
+Route::delete('/admin/invoices/delete/{id}', [AdminInvoiceController::class, 'delete'])->name('invoices.destroy');
 
 Route::get('/users', [AdminUserController::class, 'index']);
 Route::get('/users/id/{id}', [AdminUserController::class, 'show']);
